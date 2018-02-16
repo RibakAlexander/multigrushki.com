@@ -6,15 +6,18 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Article;
 use App\User;
+use App\Category;
+
 class SiteController extends Controller
 {
     //
     protected $header;
     protected $message;
+    protected $sections;
 
     public function __construct(){
         $this->header = 'Hello World!!!';
-        $this->message = 'Lorem ipsum et dolore';
+        $this->sections = Category::getSections();
     }
 
     public function profile($id){
@@ -22,7 +25,8 @@ class SiteController extends Controller
         $user = DB::select('select * from jg_users where user_id = ?', [$id]);
 
         return view('user.profile', [
-            "user" => current($user)
+            "user" => current($user),
+            "sections" => $this->sections
         ]);
     }
 
@@ -144,5 +148,9 @@ class SiteController extends Controller
         //$password = md5(crypto($password));
         return $html;
 
+    }
+
+    public function registration(){
+        return view('user.regNewUser');
     }
 }
