@@ -50,10 +50,8 @@ Route::get('registrate', 'SiteController@registration');
 Route::post('form', 'SiteController@store')->name('articleStore');
 */
 
-Route::get('/', function()
-{
-    return View::make('pages.home');
-});
+Route::get('/', 'MainController@index');
+
 Route::get('about', function()
 {
     return View::make('pages.about');

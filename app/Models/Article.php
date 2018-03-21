@@ -1,9 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
@@ -13,7 +12,7 @@ class Article extends Model
     protected $fillable = ['title', 'alias', 'desc', 'text'];
 
     public function description(){
-        return $this->hasMany('App\ArticleDescription', 'article_id');
+        return $this->hasMany('App\Models\ArticleDescription', 'article_id');
     }
 
     public static function getArticles(){

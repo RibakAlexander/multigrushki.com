@@ -1,16 +1,23 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Category extends Model
+class Product extends Model
 {
-    protected $primaryKey = 'category_id';
-    protected $table = 'categories';
+    protected $primaryKey = 'product_id';
+    protected $table = 'products';
 
     public function description(){
-        return $this->hasMany('App\CategoryDescription', 'category_id');
+        return $this->hasOne('App\Models\ProductDescription', 'product_id');
+    }
+
+    public function categories(){
+        return $this->belongsToMany('App\Models\Category', 'product_to_category', 'product_id', 'category_id');
+    }
+
+
+    public function manufacturer(){
+        return $this->belongsTo('App\Models\Manufacturer');
     }
 
     public static function getAllCategories(){
