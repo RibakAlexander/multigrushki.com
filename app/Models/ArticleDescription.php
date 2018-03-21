@@ -1,12 +1,9 @@
 <?php
 
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
+namespace App\Models;
 
 class ArticleDescription extends Model
 {
-    //
     protected $table = 'article_description';
     protected $primaryKey = 'article_id';
 }

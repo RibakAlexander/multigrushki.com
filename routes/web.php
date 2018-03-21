@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome', [
         "title" => "Laravel",
@@ -44,3 +44,23 @@ Route::get('combine', 'SiteController@combine');
 
 Route::get('logout', 'SiteController@logout');
 Route::match(['get', 'post'], 'login', 'SiteController@login')->name('userLogin');
+
+Route::get('registrate', 'SiteController@registration');
+
+Route::post('form', 'SiteController@store')->name('articleStore');
+*/
+
+Route::get('/', 'MainController@index');
+
+Route::get('about', function()
+{
+    return View::make('pages.about');
+});
+Route::get('projects', function()
+{
+    return View::make('pages.projects');
+});
+Route::get('contact', function()
+{
+    return View::make('pages.contact');
+});
