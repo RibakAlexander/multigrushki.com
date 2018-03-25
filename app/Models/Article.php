@@ -1,19 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    //
-    //protected $table = 'mi_articles';
-    protected $primaryKey = 'article_id';
+    protected $table = 'mi_articles';
     protected $fillable = ['title', 'alias', 'desc', 'text'];
 
     public function description(){
-        return $this->hasMany('App\ArticleDescription', 'article_id');
+        return $this->hasMany(ArticleDescription::class, 'article_id');
     }
 
     public static function getArticles(){
