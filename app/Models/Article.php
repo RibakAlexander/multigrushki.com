@@ -6,13 +6,11 @@ use Illuminate\Support\Facades\DB;
 
 class Article extends Model
 {
-    //
-    //protected $table = 'mi_articles';
-    protected $primaryKey = 'article_id';
+    protected $table = 'mi_articles';
     protected $fillable = ['title', 'alias', 'desc', 'text'];
-
+  
     public function description(){
-        return $this->hasMany('App\Models\ArticleDescription', 'article_id');
+        return $this->hasMany(ArticleDescription::class, 'article_id');
     }
 
     public static function getArticles(){

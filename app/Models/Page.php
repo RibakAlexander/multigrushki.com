@@ -4,7 +4,6 @@ namespace App\Models;
 
 class Page extends Model
 {
-    protected $primaryKey = 'page_id';
     protected $table = 'pages';
     protected static $description = "PageDescription";
 

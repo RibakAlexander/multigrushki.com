@@ -4,15 +4,14 @@ namespace App\Models;
 
 class Category extends Model
 {
-    protected $primaryKey = 'category_id';
     protected $table = 'categories';
 
     public function description(){
-        return $this->hasMany('App\Models\CategoryDescription', 'category_id');
+        return $this->hasMany(CategoryDescription::class, 'category_id');
     }
 
     public function products(){
-        return $this->belongsToMany('App\Models\Category', 'product_to_category', 'category_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'product_to_category', 'category_id', 'product_id');
     }
 
     public static function getAllCategories(){

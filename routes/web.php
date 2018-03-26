@@ -50,7 +50,24 @@ Route::get('registrate', 'SiteController@registration');
 Route::post('form', 'SiteController@store')->name('articleStore');
 */
 
-Route::get('/', 'MainController@index');
+Route::namespace('Frontend')->group(function () {
+    Route::get('/', 'HomeController@index');
+//    Route::get('/', 'HomeController@index')->name('home');
+//    Route::group(['middleware' => ['auth']], function () {
+//        Route::get('accounts', 'AccountsController@index')->name('accounts');
+//        Route::get('checkout', 'CheckoutController@index')->name('checkout.index');
+//        Route::post('checkout', 'CheckoutController@store')->name('checkout.store');
+//        Route::get('checkout/execute', 'CheckoutController@executePayPalPayment')->name('checkout.execute');
+//        Route::post('checkout/execute', 'CheckoutController@charge')->name('checkout.execute');
+//        Route::get('checkout/cancel', 'CheckoutController@cancel')->name('checkout.cancel');
+//        Route::get('checkout/success', 'CheckoutController@success')->name('checkout.success');
+//        Route::resource('customer.address', 'CustomerAddressController');
+//    });
+//    Route::resource('cart', 'CartController');
+//    Route::get("category/{slug}", 'CategoryController@getCategory')->name('front.category.slug');
+//    Route::get("search", 'ProductController@search')->name('search.product');
+//    Route::get("{product}", 'ProductController@show')->name('front.get.product');
+});
 
 Route::get('about', function()
 {

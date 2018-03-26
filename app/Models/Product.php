@@ -4,20 +4,19 @@ namespace App\Models;
 
 class Product extends Model
 {
-    protected $primaryKey = 'product_id';
     protected $table = 'products';
 
     public function description(){
-        return $this->hasOne('App\Models\ProductDescription', 'product_id');
+        return $this->hasOne(ProductDescription::class, 'product_id');
     }
 
     public function categories(){
-        return $this->belongsToMany('App\Models\Category', 'product_to_category', 'product_id', 'category_id');
+        return $this->belongsToMany(Category::class, 'product_to_category', 'product_id', 'category_id');
     }
 
 
     public function manufacturer(){
-        return $this->belongsTo('App\Models\Manufacturer');
+        return $this->belongsTo(Manufacturer::class);
     }
 
     public static function getAllCategories(){
