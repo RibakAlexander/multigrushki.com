@@ -49,6 +49,7 @@ Route::get('registrate', 'SiteController@registration');
 
 Route::post('form', 'SiteController@store')->name('articleStore');
 */
+
 Route::namespace('Frontend')->group(function () {
     Route::get('/', 'HomeController@index');
 //    Route::get('/', 'HomeController@index')->name('home');
@@ -67,7 +68,6 @@ Route::namespace('Frontend')->group(function () {
 //    Route::get("search", 'ProductController@search')->name('search.product');
 //    Route::get("{product}", 'ProductController@show')->name('front.get.product');
 });
-
 
 Route::get('about', function()
 {
