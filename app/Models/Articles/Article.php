@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Articles;
+
+use App\Models\Model;
 
 use Illuminate\Support\Facades\DB;
 

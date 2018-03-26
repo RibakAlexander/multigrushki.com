@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Manufacturers;
+
+use App\Models\Model;
 
 class Manufacturer extends Model
 {
