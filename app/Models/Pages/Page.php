@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Pages;
+
+use App\Models\Model;
 
 class Page extends Model
 {

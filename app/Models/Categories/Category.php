@@ -1,22 +1,19 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Categories;
 
-class Product extends Model
+use App\Models\Model;
+
+class Category extends Model
 {
-    protected $table = 'products';
+    protected $table = 'categories';
 
     public function description(){
-        return $this->hasOne(ProductDescription::class, 'product_id');
+        return $this->hasMany(CategoryDescription::class, 'category_id');
     }
 
-    public function categories(){
-        return $this->belongsToMany(Category::class, 'product_to_category', 'product_id', 'category_id');
-    }
-
-
-    public function manufacturer(){
-        return $this->belongsTo(Manufacturer::class);
+    public function products(){
+        return $this->belongsToMany(Product::class, 'product_to_category', 'category_id', 'product_id');
     }
 
     public static function getAllCategories(){

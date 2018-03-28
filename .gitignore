@@ -1,5 +1,12 @@
+<<<<<<< HEAD
+.idea
+.gitignore
+vendor/
+.idea/
+=======
 vendor
 .idea
+>>>>>>> 2dd276c19aa5babc8fa1daf557e6849d707b6036
 node_modules/
 npm-debug.log
 

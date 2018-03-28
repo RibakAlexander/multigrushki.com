@@ -14,4 +14,4 @@ class Controller extends BaseController
     final protected function render(){
         return view();
     }
-}
+} 
