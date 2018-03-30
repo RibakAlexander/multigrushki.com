@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Articles;
+
+use App\Models\Model;
 
 use Illuminate\Support\Facades\DB;
 
@@ -8,7 +10,7 @@ class Article extends Model
 {
     protected $table = 'mi_articles';
     protected $fillable = ['title', 'alias', 'desc', 'text'];
-  
+
     public function description(){
         return $this->hasMany(ArticleDescription::class, 'article_id');
     }
