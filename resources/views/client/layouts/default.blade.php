@@ -1,23 +1,23 @@
 <!doctype html>
 <html lang="ru_Ru">
 <head>
-    @include('includes.head')
+    @include('client.includes.head')
 </head>
 <body>
 <div class="container">
 
     <header class="row">
-        @include('includes.header')
+        @include('client.includes.header')
     </header>
 
     <div id="main" class="row">
 
-        @yield('content')
+        @yield('client.content')
 
     </div>
 
     <footer class="row">
-        @include('includes.footer')
+        @include('client.includes.footer')
     </footer>
 
 </div>

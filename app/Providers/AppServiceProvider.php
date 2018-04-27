@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Carbon;
+use App\Models\Categories\Category;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $categories = Category::query();
+        $categories->with([
+            'description' => function($query){
+                $query->where('language_id', 1);
+            }
+        ]);
+        
+
+        View::share([
+            'nowDate' => Carbon::now(),
+            'categories' => $categories->get()
+        ]);
     }
 
     /**
