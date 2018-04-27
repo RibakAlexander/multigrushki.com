@@ -1,4 +1,13 @@
-
+<div class="categories">
+    @foreach($categories as $category)
+        @php
+        $desc = $category->description()->first();
+        @endphp
+    <div class="category">
+        <a href="/catalog/{{ $category->slug }}">{{ $desc->name }}</a>
+    </div>
+    @endforeach
+</div>
 <!--
 <div class="navbar">
     <div class="navbar-inner">
