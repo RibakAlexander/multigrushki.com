@@ -3,6 +3,7 @@
 namespace App\Models\Manufacturers;
 
 use App\Models\Model;
+use App\Models\Products\Product;
 
 class Manufacturer extends Model
 {

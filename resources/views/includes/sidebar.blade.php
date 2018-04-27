@@ -1,8 +1,10 @@
 <!-- sidebar nav -->
 <nav id="sidebar-nav">
+    @if($categories)
     <ul class="nav nav-pills nav-stacked">
-        <li><a href="#">Fly to the Moon</a></li>
-        <li><a href="#">Dig to China</a></li>
-        <li><a href="#">Swim Across the Sea</a></li>
+        @foreach($categories as $category)
+        <li><a href="{{ route('category') . '/' . $category->slug }}">{{ $category->getDescription('name') }}</a></li>
+        @endforeach
     </ul>
+    @endif
 </nav>

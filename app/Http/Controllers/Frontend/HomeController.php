@@ -15,6 +15,20 @@ class HomeController extends FrontendController
 {
 
     public function index(){
+        $product = Product::query();
+        $product->where("id", 2000);
+//        $product = $product->get();
+        dd($product->first());
+        $manufacturer = $product->manufacturer();
+        $categories = Category::query();
+        $categories->with([
+            'description' => function($query){
+                $query->where('language_id', 1);
+            }
+        ]);
+        $categories->where('status', 1);
+        $category = $categories->first();
+        dd($category);
         $product = Product::find(28);
         $categoryID = 2300; // $_SESSION['category_id']
         //$category = $product->categories()->wherePivot('category_id', $categoryID);
